@@ -3,6 +3,7 @@ name: Maven Package - Multi stage docker
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
