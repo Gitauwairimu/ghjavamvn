@@ -1,0 +1,26 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://source.developers.google.com/p/pork-merchant/r/newJavaApp']
+
+- name: maven:3-jdk-8
+  entrypoint: mvn
+  args: ['test']
+
+
+- name: maven:3-jdk-8
+  entrypoint: mvn
+  args: ['package','-Dmaven.test.skip=true']
+
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/pork-merchant/newjavaapp:v1', '.']
+  # args: ['build', '-t', 'us-central1-docker.pkg.dev/pork-merchant/javaimage:v1', '.']
+
+# images:
+#   - 'us-central1-docker.pkg.dev/pork-merchant/javaimage:v1'
+   # Docker Push
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/pork-merchant/newjavaapp:v1']
+logsBucket: 'gs://artifacts.pork-merchant.appspot.com'
+# options:
+#   logging: CLOUD_LOGGING_ONLY
