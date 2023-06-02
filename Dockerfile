@@ -8,4 +8,4 @@ EXPOSE 8081
 # set the startup command to execute the jar
 CMD ["java", "-jar", "/my-app-1.0-SNAPSHOT.jar"]
 
-/home/andes/projects/k8s/jenkins/simple-java-maven-app/target/my-app-1.0-SNAPSHOT.jar
+
