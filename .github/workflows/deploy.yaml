@@ -58,7 +58,8 @@ jobs:
 
     - name: Update k8s manifest yaml
       run: |
-        sed -i 's/^image: gitauwairimu/javamvn/image: gitauwairimu/javamvn::${GITHUB_RUN_ID}/' deployment.yaml
+        sed -i 's/^image: /\"image: /\"image: \"${GITHUB_RUN_ID}\"\"/' deployment.yaml
+
 
     - name: Push Repo changes
       uses: EndBug/add-and-commit@v7
