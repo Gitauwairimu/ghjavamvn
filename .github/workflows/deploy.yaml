@@ -38,3 +38,23 @@ jobs:
     - name: Docker push
       run: |
         docker push gitauwairimu/javamvn:${GITHUB_RUN_ID}
+
+    - name: Checkout K8s manifest repo
+        uses: actions/checkout@v2
+        with:
+          repository: Gitauwairimu/GitOps--ghjavamvn
+          token: ${{ secrets.k8s_REPO_UPDATE }}
+          path: ./base
+
+      - name: Update k8s manifest yaml
+        run: |
+          # sed 's/appVersion: "[^"]*"/appVersion: "${{ steps.vars.outputs.tag }}"/' -i ./base/deployment.yaml
+          sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
+          # sed -i 's/image: gitauwairimu/javamvn:5148240302/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
+
+      - name: Push helm changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          cwd: ./base
+          message: 'update image version'
+          branch: main
