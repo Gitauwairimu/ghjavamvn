@@ -58,15 +58,16 @@ jobs:
 
     - name: Update k8s manifest yaml
       run: |
-                # sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
-        sed -i 's/^image: gitauwairimu/javamvn/image: gitauwairimu/javamvn:5148240302/' deployment.yaml
+        sed -i 's/^image: gitauwairimu/javamvn/image: gitauwairimu/javamvn::${GITHUB_RUN_ID}/' deployment.yaml
 
-
-        # sed -i 's/image: gitauwairimu/javamvn:5148240302/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
-
-    - name: Push helm changes
+    - name: Push Repo changes
       uses: EndBug/add-and-commit@v7
       with:
         cwd: ./base
         message: 'update image version'
         branch: main
+
+
+
+
+                  # sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
