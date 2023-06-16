@@ -58,9 +58,8 @@ jobs:
 
     - name: Update k8s manifest yaml
       run: |
-        # sed 's/appVersion: "[^"]*"/appVersion: "${{ steps.vars.outputs.tag }}"/' -i ./base/deployment.yaml
-        # sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
-        $ sed -i 's/^image: gitauwairimu/javamvn/image: gitauwairimu/javamvn:5148240302/' deployment.yaml
+                # sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
+        sed -i 's/^image: gitauwairimu/javamvn/image: gitauwairimu/javamvn:5148240302/' deployment.yaml
 
 
         # sed -i 's/image: gitauwairimu/javamvn:5148240302/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
