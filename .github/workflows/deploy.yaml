@@ -44,7 +44,7 @@ jobs:
       with:
         repository: Gitauwairimu/GitOps--ghjavamvn
         ref: 'main'
-        export GITHUB_TOKEN=$(secrets.k8s_REPO_UPDATE)
+        # export GITHUB_TOKEN=$(secrets.k8s_REPO_UPDATE)
         token: ${{ secrets.k8s_REPO_UPDATE }}
         path: ./base
     - name: setup git config
