@@ -84,6 +84,7 @@ jobs:
         github_token: ${{ secrets.REMOTE_GITHUB_TOKEN }}
         repository: Gitauwairimu/GitOps--ghjavamvn
         branch: main
+        force_with_lease: true
 
     - name: Push Repo changes
       uses: EndBug/add-and-commit@v7
