@@ -51,17 +51,18 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
 
+    - name: Update k8s manifest yaml
+      run: |
+        cat /base/deployment.yaml
+        sed -i 's/image: gitauwairimu/javamvn*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/g' /base/deployment.yaml
+        cat /base/deployment.yaml
     - name: setup git config
       run: |
         git config user.name "Charles GitHub Actions Bot"
         git config user.email "wcharlesgitau@gmail.com"
-
-    - name: Update k8s manifest yaml
-      run: |
-        sed -i 's/^image: /\"image: \\/\"image: \"${GITHUB_RUN_ID}\"\"/' deployment.yaml
-
-
-
+        git add /base/deployment.yaml
+        git commit -m 'updated k8s manifest'
+        git push origin main
 
     - name: Push Repo changes
       uses: EndBug/add-and-commit@v7
