@@ -66,7 +66,7 @@ jobs:
     - name: Update k8s manifest with new image
       run: |
         cd base/base
-        sed -i 's/image *= *\(.*\)/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
+        sed -i "s/image *= *\(.*\)/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g" deployment.yaml
         cat deployment.yaml
 
     - name: setup git config
