@@ -70,19 +70,19 @@ jobs:
         # git remote set-url origin https://x-access-token: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@github.com:Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        git push https://${{ secrets.ACTIONS_RUNNER_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        git push origin main
 
-        # git push origin main
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        # github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
-        repository: Gitauwairimu/GitOps--ghjavamvn
-        branch: main
-        force_with_lease: true
-        directory: base
-      env:
-        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     # github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+    #     repository: Gitauwairimu/GitOps--ghjavamvn
+    #     branch: main
+    #     force_with_lease: true
+    #     directory: base
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
 
 
     # - name: Push Repo changes
