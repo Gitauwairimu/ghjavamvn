@@ -71,7 +71,9 @@ jobs:
 
     - name: setup git config
       run: |
+        ls
         cd base
+        ls
         git config user.name "Charles GitHub Actions Bot"
         git config user.email "wcharlesgitau@gmail.com"
         git add base/deployment.yaml
