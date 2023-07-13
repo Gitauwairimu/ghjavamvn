@@ -54,7 +54,8 @@ jobs:
     - name: Update k8s manifest yaml
       run: |
         cd base/base
-        echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+        # echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+        echo "${GITHUB_RUN_ID}"
         # sed -i 's/image*/"image: gitauwairimu/javamvn:${GITHUB_RUN_ID}"/g' deployment.yaml
         sed -i 's/image*/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
         cat deployment.yaml
