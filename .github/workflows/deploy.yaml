@@ -71,8 +71,8 @@ jobs:
     - name: setup git config
       run: |
         cd base
-        git config user.name "Gitauwairimu"
-        git config user.email "wcharlesgitau@gmail.com"
+        git config user.name "charles"
+        git config user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
         # git remote set-url origin https://x-access-token:${{ secrets.REMOTE_GITHUB_TOKEN }}@github.com:Gitauwairimu/GitOps--ghjavamvn.git
