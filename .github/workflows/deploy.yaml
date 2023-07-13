@@ -75,26 +75,23 @@ jobs:
         git config user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
-        # git remote set-url origin https://x-access-token:${{ secrets.REMOTE_GITHUB_TOKEN }}@github.com:Gitauwairimu/GitOps--ghjavamvn.git
-        # git push origin main
+        git remote set-url origin https://x-access-token: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@github.com:Gitauwairimu/GitOps--ghjavamvn.git
+        git push origin main
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
-        repository: Gitauwairimu/GitOps--ghjavamvn
-        branch: main
-        force_with_lease: true
-        directory: base
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+    #     repository: Gitauwairimu/GitOps--ghjavamvn
+    #     branch: main
+    #     force_with_lease: true
+    #     directory: base
 
-    - name: Push Repo changes
-      uses: EndBug/add-and-commit@v7
-      with:
-        cwd: ./base
-        message: 'update image version'
-        branch: main
-
-
+    # - name: Push Repo changes
+    #   uses: EndBug/add-and-commit@v7
+    #   with:
+    #     cwd: ./base
+    #     message: 'update image version'
+    #     branch: main
 
 
-                  # sed -i 's/^image: gitauwairimu/javamvn.*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/' ./base/deployment.yaml
