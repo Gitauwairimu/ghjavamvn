@@ -81,7 +81,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.REMOTE_GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         repository: Gitauwairimu/GitOps--ghjavamvn
         branch: main
         force_with_lease: true
