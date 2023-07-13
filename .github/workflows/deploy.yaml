@@ -71,7 +71,6 @@ jobs:
 
     - name: setup git config
       run: |
-        ls
         cd base
         ls
         git config user.name "Charles GitHub Actions Bot"
