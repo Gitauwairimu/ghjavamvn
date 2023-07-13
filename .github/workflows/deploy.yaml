@@ -82,7 +82,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.REMOTE_GITHUB_TOKEN }}
-        repository: Gitauwairimu/GitOps--ghjavamvn.git
+        repository: Gitauwairimu/GitOps--ghjavamvn
         branch: main
 
     - name: Push Repo changes
