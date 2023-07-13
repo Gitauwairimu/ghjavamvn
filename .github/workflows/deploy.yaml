@@ -66,8 +66,10 @@ jobs:
     - name: Update k8s manifest with new image
       run: |
         cd base/base
-        yq -i '.image = "gitauwairimu/javamvn:${GITHUB_RUN_ID}"' deployment.yaml
+        # yq -i '.image = "gitauwairimu/javamvn:${GITHUB_RUN_ID}"' deployment.yaml
         # sed -i "s/image *= *\(.*\)/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g" deployment.yaml
+        pip install yq
+        yq -i '.spec.template.spec.containers[0].image = "gitauwairimu/javamvn:$GITHUB_RUN_ID"' deployment.yaml
         cat deployment.yaml
 
     - name: setup git config
