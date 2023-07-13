@@ -55,9 +55,10 @@ jobs:
       run: |
         pwd
         ls
-        cat /base/deployment.yaml
-        sed -i 's/image: gitauwairimu/javamvn*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/g' /base/deployment.yaml
-        cat /base/deployment.yaml
+        cd base
+        cat deployment.yaml
+        sed -i 's/image: gitauwairimu/javamvn*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
+        cat deployment.yaml
     - name: setup git config
       run: |
         git config user.name "Charles GitHub Actions Bot"
