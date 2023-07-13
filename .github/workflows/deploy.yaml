@@ -52,18 +52,22 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
     # - name: Set ${GITHUB_RUN_ID}
     #   run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+    # - name: Update k8s manifest with new image
+    #   run: |
+    #     echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+    #     cd base/base
+    #     echo "${GITHUB_RUN_ID}"
+    #     sed -i 's/image *= *\(.*\)/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
+    #     cat deployment.yaml
+    - name: Set ${GITHUB_RUN_ID}
+      run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+    - name: Wait for ${GITHUB_RUN_ID}
+      run: wait
     - name: Update k8s manifest with new image
       run: |
-        echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
         cd base/base
-        # touch .github/workflows/run_id
-        # echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
-        echo "${GITHUB_RUN_ID}"
-        # sed -i 's/image*/"image: gitauwairimu/javamvn:${GITHUB_RUN_ID}"/g' deployment.yaml
-        # sed -i 's/image*/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
         sed -i 's/image *= *\(.*\)/image: gitauwairimu\/javamvn:${GITHUB_RUN_ID}/g' deployment.yaml
 
-        cat deployment.yaml
 
     - name: setup git config
       run: |
