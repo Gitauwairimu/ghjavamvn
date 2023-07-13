@@ -74,7 +74,7 @@ jobs:
         cd base
         git config user.name "Charles GitHub Actions Bot"
         git config user.email "wcharlesgitau@gmail.com"
-        git add /base/deployment.yaml
+        git add base/deployment.yaml
         git commit -m 'updated k8s manifest'
         git push origin main
 
