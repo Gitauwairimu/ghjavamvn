@@ -76,7 +76,9 @@ jobs:
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
         # git remote set-url origin https://x-access-token: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@github.com:Gitauwairimu/GitOps--ghjavamvn.git
-        git remote set-url origin https://gitauwairimu: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@github.com:Gitauwairimu/GitOps--ghjavamvn.git
+        git remote set-url origin https://Gitauwairimu:${{ secrets.ACTIONS_RUNNER_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
+
         git push origin main
 
     # - name: Push changes
