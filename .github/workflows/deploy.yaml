@@ -53,7 +53,7 @@ jobs:
 
     - name: Update k8s manifest yaml
       run: |
-        cd base
+        cd base/base
         pwd
         ls
         cat deployment.yaml
