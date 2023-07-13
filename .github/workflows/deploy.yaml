@@ -50,10 +50,8 @@ jobs:
         path: ./base
       env:
         GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
-    - name: Set ${GITHUB_RUN_ID}
+    - name: Set ${GITHUB_RUN_ID} and Update k8s manifest yaml
       run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
-    - name: Update k8s manifest yaml
-      run: |
         cd base/base
         # touch .github/workflows/run_id
         # echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
