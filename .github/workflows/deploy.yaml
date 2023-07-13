@@ -53,6 +53,8 @@ jobs:
 
     - name: Update k8s manifest yaml
       run: |
+        pwd
+        ls
         cat /base/deployment.yaml
         sed -i 's/image: gitauwairimu/javamvn*/image: gitauwairimu/javamvn:${GITHUB_RUN_ID}/g' /base/deployment.yaml
         cat /base/deployment.yaml
