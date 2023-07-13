@@ -85,6 +85,7 @@ jobs:
         repository: Gitauwairimu/GitOps--ghjavamvn
         branch: main
         force_with_lease: true
+        directory: base
 
     - name: Push Repo changes
       uses: EndBug/add-and-commit@v7
