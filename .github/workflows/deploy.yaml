@@ -55,6 +55,8 @@ jobs:
       run: |
         cd base/base
         sed -i 's/image*/"image: gitauwairimu/javamvn:${GITHUB_RUN_ID}"/g' deployment.yaml
+        sed -i 's/image*/"image: javamvn:${GITHUB_RUN_ID}"/g' deployment.yaml
+
     - name: setup git config
       run: |
         git config user.name "Charles GitHub Actions Bot"
