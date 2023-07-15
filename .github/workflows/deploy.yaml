@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -73,19 +73,22 @@ jobs:
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git push https://${{ secrets.k8s_REPO_UPDATE }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
+        # git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
         # git push origin main
 
-    # - name: Push changes
-    #   uses: ad-m/github-push-action@master
-    #   with:
-    #     # github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
-    #     repository: Gitauwairimu/GitOps--ghjavamvn
-    #     branch: main
-    #     force_with_lease: true
-    #     directory: base
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        repository: Gitauwairimu/GitOps--ghjavamvn
+        branch: main
+        force_with_lease: true
+        directory: base
+      env:
+        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+    - uses: fastify/github-action-merge-dependabot@v2.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 
     # - name: Push Repo changes
