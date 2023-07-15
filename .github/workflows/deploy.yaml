@@ -46,7 +46,7 @@ jobs:
         docker push gitauwairimu/javamvn:${GITHUB_RUN_ID}
 
     - name: Checkout K8s manifest repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: Gitauwairimu/GitOps--ghjavamvn
         ref: 'main'
