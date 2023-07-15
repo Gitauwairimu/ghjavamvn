@@ -56,8 +56,8 @@ jobs:
         # token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         path: ./base
       env:
-        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
-      #   GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
+        # GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+        GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
     - name: Set ${GITHUB_RUN_ID}
       run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
