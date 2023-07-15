@@ -79,9 +79,9 @@ jobs:
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
+        # git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
         # git push origin main
-
+        git push https://Gitauwairimu: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@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
     # - name: Push changes
     #   uses: ad-m/github-push-action@master
     #   with:
