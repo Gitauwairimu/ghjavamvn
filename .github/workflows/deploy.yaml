@@ -50,6 +50,7 @@ jobs:
       with:
         repository: Gitauwairimu/GitOps--ghjavamvn
         ref: 'main'
+        persist-credentials: false
         # export GITHUB_TOKEN=$(secrets.k8s_REPO_UPDATE)
         # token: ${{ secrets.k8s_REPO_UPDATE }}
         # token: ${{ secrets.GITHUB_TOKEN }}
