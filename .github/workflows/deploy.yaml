@@ -72,8 +72,8 @@ jobs:
     - name: setup git config
       run: |
         cd base
-        git config user.name "charles"
-        git config user.email "gitauwairimu@gmail.com"
+        git config --global user.name "charles"
+        git config --global user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
         
