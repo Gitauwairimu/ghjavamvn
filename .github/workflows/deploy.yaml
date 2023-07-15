@@ -83,7 +83,6 @@ jobs:
         repository: Gitauwairimu/GitOps--ghjavamvn
         branch: main
         force_with_lease: true
-        directory: base
       # env:
       #   GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
 
