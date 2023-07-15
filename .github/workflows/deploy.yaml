@@ -70,6 +70,8 @@ jobs:
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
     - name: setup git config
+      env:
+        GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
       run: |
         cd base
         git config --global user.name "charles"
@@ -80,7 +82,7 @@ jobs:
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push https://Gitauwairimu:${{secrets.GITHUB_TOKEN}}@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
+        git push https://Gitauwairimu:${GH_TOKEN}@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
         # git push origin main
         # 
     # - name: Push changes
