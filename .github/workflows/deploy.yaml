@@ -53,10 +53,10 @@ jobs:
         # export GITHUB_TOKEN=$(secrets.k8s_REPO_UPDATE)
         # token: ${{ secrets.k8s_REPO_UPDATE }}
         # token: ${{ secrets.GITHUB_TOKEN }}
-        token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        # token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         path: ./base
-      # env:
-      #   GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
       #   GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
     - name: Set ${GITHUB_RUN_ID}
