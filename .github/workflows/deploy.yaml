@@ -54,8 +54,9 @@ jobs:
         # token: ${{ secrets.k8s_REPO_UPDATE }}
         token: ${{ secrets.GITHUB_TOKEN }}
         path: ./base
-      env:
-        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+      #   GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
     - name: Set ${GITHUB_RUN_ID}
       run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
@@ -76,8 +77,8 @@ jobs:
         
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        # git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
+        # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
         # git push origin main
 
     # - name: Push changes
