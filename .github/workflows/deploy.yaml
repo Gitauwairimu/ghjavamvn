@@ -84,12 +84,12 @@ jobs:
         branch: main
         force_with_lease: true
         directory: base
-      env:
-        GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
-    - uses: fastify/github-action-merge-dependabot@v2.1.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
 
+    - uses: fastify/github-action-merge-dependabot@v2.1.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Push Repo changes
     #   uses: EndBug/add-and-commit@v7
