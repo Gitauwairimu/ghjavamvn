@@ -80,7 +80,7 @@ jobs:
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
+        git push https://${{secrets.ACTIONS_RUNNER_TOKEN}}@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
         # git push origin main
         # git push https://Gitauwairimu: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@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
     # - name: Push changes
@@ -90,7 +90,7 @@ jobs:
     #     repository: Gitauwairimu/GitOps--ghjavamvn
     #     branch: main
     #     force_with_lease: true
-        # git push https://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@github.com//Gitauwairimu/GitOps--ghjavamvn.git -f
+        # 
       # env:
       #   GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
 
