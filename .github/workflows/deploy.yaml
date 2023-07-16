@@ -81,15 +81,15 @@ jobs:
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         
-        git config --global --replace-all remote.origin.url https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
+        # git config --global --replace-all remote.origin.url https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
         
         git config --global user.name "charles"
         git config --global user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
 
-        git remote -v
-        # git remote set-url origin https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        # git remote -v
+        git remote set-url origin https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         
         # git push https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
         git push origin main
