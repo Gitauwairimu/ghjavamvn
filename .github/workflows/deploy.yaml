@@ -85,7 +85,7 @@ jobs:
         git commit -m 'updated k8s manifest image version'
 
         # git remote -v
-        git remote add origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        git push origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
 
 
         # git remote set-url origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
