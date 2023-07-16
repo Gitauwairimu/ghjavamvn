@@ -89,10 +89,10 @@ jobs:
         git config --global --replace-all remote.origin.url https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
         
         # git remote -v
-        # git remote set-url origin https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        git remote set-url origin https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         
         # git push https://Gitauwairimu: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@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
-        git push origin main
+        # git push origin main
         # 
     # - name: Push changes
     #   uses: ad-m/github-push-action@master
