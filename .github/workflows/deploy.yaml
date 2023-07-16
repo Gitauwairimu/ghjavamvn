@@ -85,14 +85,15 @@ jobs:
         git commit -m 'updated k8s manifest image version'
 
         # git remote -v
-        git push origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git main
+        git checkout -b main
+
+        git push origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
 
 
         # git remote set-url origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         
         # git push https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
-        git branch -b
-        # git push origin main
+         # git push origin main
         # 
     # - name: Push changes
     #   uses: ad-m/github-push-action@master
