@@ -72,23 +72,25 @@ jobs:
     - name: setup git config
       env:
         GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        GH_USER: Gitauwairimu
+        REPO: GitOps--ghjavamvn.git
       run: |
         cd base
-        # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        # git remote set-url origin https://$GH_USER:${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
+        # git remote set-url origin https://github.com/$GH_USER/$REPO
+        # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
         
         git config --global user.name "charles"
         git config --global user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
 
-        # git push origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
-        git push -u origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git main -f
+        # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
+        git push -u origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO main -f
 
-        # git remote set-url origin https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git
+        # git remote set-url origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
         
-        # git push https://Gitauwairimu:$GH_TOKEN@github.com/Gitauwairimu/GitOps--ghjavamvn.git -f
+        # git push https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/GitOps--ghjavamvn.git -f
          # git push origin main
         # 
     # - name: Push changes
