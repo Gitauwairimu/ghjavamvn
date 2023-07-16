@@ -74,10 +74,13 @@ jobs:
         GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
       run: |
         cd base
+        git remote rm origin
         git config --global user.name "charles"
         git config --global user.email "gitauwairimu@gmail.com"
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
+
+        git remote -v  
         
         # git remote set-url origin https://Gitauwairimu:${{ secrets.GITHUB_TOKEN }}@github.com/Gitauwairimu/GitOps--ghjavamvn.git
         # git remote set-url origin https://github.com/Gitauwairimu/GitOps--ghjavamvn.git
