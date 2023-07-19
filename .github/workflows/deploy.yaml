@@ -99,6 +99,8 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        repository: Gitauwairimu/GitOps--ghjavamvn
+        force_with_lease: true
         branch: main
     - uses: fastify/github-action-merge-dependabot@v2.1.1
       with:
