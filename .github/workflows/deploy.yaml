@@ -71,8 +71,8 @@ jobs:
         GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         GH_USER: Gitauwairimu
         REPO: GitOps--ghjavamvn.git
-      # shell: bash
-      # working-directory: base
+      shell: bash
+      working-directory: base
       run: |
         cd base
         # git remote set-url origin https://$GH_USER:${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
