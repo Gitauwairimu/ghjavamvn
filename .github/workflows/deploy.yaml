@@ -50,11 +50,8 @@ jobs:
       with:
         repository: Gitauwairimu/GitOps--ghjavamvn
         ref: 'main'
-        persist-credentials: false
-        # export GITHUB_TOKEN=$(secrets.k8s_REPO_UPDATE)
-        # token: ${{ secrets.k8s_REPO_UPDATE }}
-        # token: ${{ secrets.GITHUB_TOKEN }}
-        # token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        persist-credentials: true
+        fetch-depth: 0
         path: ./base
       env:
         # GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
@@ -74,6 +71,8 @@ jobs:
         GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         GH_USER: Gitauwairimu
         REPO: GitOps--ghjavamvn.git
+      # shell: bash
+      # working-directory: base
       run: |
         cd base
         # git remote set-url origin https://$GH_USER:${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
@@ -86,12 +85,12 @@ jobs:
         git commit -m 'updated k8s manifest image version'
 
         # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
-        git push -u origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO main -f
+        # git push -u origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO main -f
 
         # git remote set-url origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
         
         # git push https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/GitOps--ghjavamvn.git -f
-         # git push origin main
+         git push origin main
         # 
     # - name: Push changes
     #   uses: ad-m/github-push-action@master
