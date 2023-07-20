@@ -65,10 +65,10 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
-    - name: Set ${GITHUB_RUN_ID}
-      run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
-    - name: Wait for ${GITHUB_RUN_ID}
-      run: wait
+    # - name: Set ${GITHUB_RUN_ID}
+    #   run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
+    # - name: Wait for ${GITHUB_RUN_ID}
+    #   run: wait
     - name: Update k8s manifest with new image
       run: |
         cd base/base
@@ -103,16 +103,17 @@ jobs:
         # git push https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/GitOps--ghjavamvn.git -f
         #  git push origin main
         # git 
-        
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Apply php-cs-fixer changes
-        # sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
-        push_options: --force
-        repository: base/base
-        commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
-        commit_user_email: my-github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
-        commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
+
+
+    # - uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: Apply php-cs-fixer changes
+    #     # sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
+    #     push_options: --force
+    #     repository: base/base
+    #     commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
+    #     commit_user_email: my-github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+    #     commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
 
 
     # - name: Push changes
