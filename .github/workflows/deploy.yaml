@@ -91,7 +91,7 @@ jobs:
         
         git config --global user.name "charles"
         git config --global user.email "gitauwairimu@gmail.com"
-        commit_author: Author <actions@github.com>
+        # commit_author: Author <actions@github.com>
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
 
