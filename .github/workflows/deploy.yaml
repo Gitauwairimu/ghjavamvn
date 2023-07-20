@@ -53,47 +53,67 @@ jobs:
       run: |
         docker push gitauwairimu/javamvn:${GITHUB_RUN_ID}
 
-    - name: Checkout K8s manifest repo
-      uses: actions/checkout@v3
-      with:
-        repository: Gitauwairimu/GitOps--ghjavamvn
-        ref: 'main'
-        persist-credentials: true
-        fetch-depth: 0
-        path: ./base
-      env:
-        # GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
-        GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
+    # - name: Checkout K8s manifest repo
+    #   uses: actions/checkout@v3
+    #   with:
+    #     repository: Gitauwairimu/GitOps--ghjavamvn
+    #     ref: 'main'
+    #     persist-credentials: true
+    #     fetch-depth: 0
+    #     path: ./base
+    #   env:
+    #     # GITHUB_TOKEN: ${{ secrets.k8s_REPO_UPDATE }}
+    #     GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
     # - name: Set ${GITHUB_RUN_ID}
     #   run: echo "${GITHUB_RUN_ID}" > .github/workflows/run_id
     # - name: Wait for ${GITHUB_RUN_ID}
-    #   run: wait
-    - name: Update k8s manifest with new image
-      run: |
-        cd base/base
-        sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
+    #   run: 
+    
+    # - name: Update k8s manifest with new image
+    #   run: |
+    #     cd base/base
+    #     sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
-    - name: setup git config
-      env:
-        GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
-        GH_USER: Gitauwairimu
-        REPO: GitOps--ghjavamvn.git
-      shell: bash
-      working-directory: base
-      run: |
-        ls
+    # - name: setup git config
+    #   env:
+    #     GH_TOKEN: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+    #     GH_USER: Gitauwairimu
+    #     REPO: GitOps--ghjavamvn.git
+    #   shell: bash
+    #   working-directory: base
+    #   run: |
+    #     ls
         # cd base
         # ls
         # git remote set-url origin https://$GH_USER:${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
         # git remote set-url origin https://github.com/$GH_USER/$REPO
         # git push https://${{ secrets.GITHUB_TOKEN }}@github.com/$GH_USER/$REPO
         
-        git config --global user.name "charles"
-        git config --global user.email "gitauwairimu@gmail.com"
-        # commit_author: Author <actions@github.com>
-        git add base/deployment.yaml
-        git commit -m 'updated k8s manifest image version'
+        # git config --global user.name "charles"
+        # git config --global user.email "gitauwairimu@gmail.com"
+        # # commit_author: Author <actions@github.com>
+        # git add base/deployment.yaml
+        # git commit -m 'updated k8s manifest image version'
+
+      - name: Checkout helm chart
+        uses: actions/checkout@v2
+        with:
+          repository: gitauwairimu/javamvn
+          token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+          path: ./base
+
+      - name: Update chart.yaml
+        run: |
+          sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" base/deployment.yaml
+
+      - name: Push helm changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          cwd: ./base
+          message: 'update app version'
+          branch: main
+
 
         # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
         # git push -u origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO main -f
