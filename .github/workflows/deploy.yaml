@@ -131,6 +131,7 @@ jobs:
         cwd: ./base
         message: 'update app version'
         branch: main
+        GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
 
 
         # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
