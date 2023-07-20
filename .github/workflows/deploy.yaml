@@ -122,7 +122,7 @@ jobs:
         cd base/base
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
-    - name: Push helm changes
+    - name: Push Image Update changes
       uses: EndBug/add-and-commit@v7
       with:
         cwd: base
