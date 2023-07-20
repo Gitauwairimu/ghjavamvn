@@ -130,7 +130,7 @@ jobs:
         branch: main
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
         push: --force
-        default_author: Gitauwairimu
+        default_author: github_actions
         # git config user.name 'github-actions[bot]'
 
 
