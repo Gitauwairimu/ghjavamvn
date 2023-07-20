@@ -96,23 +96,23 @@ jobs:
         # git add base/deployment.yaml
         # git commit -m 'updated k8s manifest image version'
 
-      - name: Checkout helm chart
-        uses: actions/checkout@v2
-        with:
-          repository: gitauwairimu/javamvn
-          token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
-          path: ./base
+    - name: Checkout helm chart
+      uses: actions/checkout@v2
+      with:
+        repository: gitauwairimu/javamvn
+        token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
+        path: ./base
 
-      - name: Update chart.yaml
-        run: |
-          sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" base/deployment.yaml
+    - name: Update chart.yaml
+      run: |
+        sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" base/deployment.yaml
 
-      - name: Push helm changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          cwd: ./base
-          message: 'update app version'
-          branch: main
+    - name: Push helm changes
+      uses: EndBug/add-and-commit@v7
+      with:
+        cwd: ./base
+        message: 'update app version'
+        branch: main
 
 
         # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
