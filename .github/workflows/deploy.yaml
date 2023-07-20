@@ -126,7 +126,7 @@ jobs:
       uses: EndBug/add-and-commit@v7
       with:
         cwd: base
-        message: 'update app version'
+        message: 'update image version'
         branch: main
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
         tag_push: '--force'
