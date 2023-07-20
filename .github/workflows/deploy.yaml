@@ -105,6 +105,8 @@ jobs:
         # git 
         
     - uses: stefanzweifel/git-auto-commit-action@v4
+      run: |
+        ls
       with:
         commit_message: Apply php-cs-fixer changes
         push_options: --force
