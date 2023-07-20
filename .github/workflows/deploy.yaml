@@ -91,6 +91,7 @@ jobs:
         
         git config --global user.name "charles"
         git config --global user.email "gitauwairimu@gmail.com"
+        commit_author: Author <actions@github.com>
         git add base/deployment.yaml
         git commit -m 'updated k8s manifest image version'
 
@@ -101,18 +102,28 @@ jobs:
         
         # git push https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/GitOps--ghjavamvn.git -f
         #  git push origin main
-        # git push
+        # git 
+        
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes
+        push_options: --force
+        repository: GitOps--ghjavamvn.git
+        commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
+        commit_user_email: my-github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+        commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        repository: Gitauwairimu/GitOps--ghjavamvn
-        force_with_lease: true
-        branch: main
-    - uses: fastify/github-action-merge-dependabot@v2.1.1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     repository: Gitauwairimu/GitOps--ghjavamvn
+    #     force_with_lease: true
+    #     branch: main
+    # - uses: fastify/github-action-merge-dependabot@v2.1.1
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
 
     # - name: Push changes
