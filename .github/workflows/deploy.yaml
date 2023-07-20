@@ -128,7 +128,7 @@ jobs:
     - name: Push helm changes
       uses: EndBug/add-and-commit@v7
       with:
-        cwd: ./base
+        cwd: base
         message: 'update app version'
         branch: main
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
