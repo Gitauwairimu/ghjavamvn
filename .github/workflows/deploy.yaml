@@ -109,7 +109,7 @@ jobs:
         commit_message: Apply php-cs-fixer changes
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
         push_options: --force
-        repository: base/base
+        repository: gitauwairimu/javamvn/base
         commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
         commit_user_email: my-github-actions-bot@example.org # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
         commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
