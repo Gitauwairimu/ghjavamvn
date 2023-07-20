@@ -99,7 +99,7 @@ jobs:
     - name: Checkout helm chart
       uses: actions/checkout@v2
       with:
-        repository: Gitauwairimu/javamvn
+        repository: Gitauwairimu/ghjavamvn
         token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         path: ./base
         ref: refs/heads/main
