@@ -107,6 +107,7 @@ jobs:
 
     - name: Update chart.yaml
       run: |
+        ls
         cd base/base
         ls
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
