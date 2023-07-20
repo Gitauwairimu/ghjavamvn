@@ -122,15 +122,15 @@ jobs:
         cd base/base
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
-    - name: Push Image Update changes
-      uses: EndBug/add-and-commit@v7
-      with:
-        cwd: base
-        message: 'update image version'
-        branch: main
-        GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
-        push: --force
-        default_author: user_info
+    # - name: Push Image Update changes
+    #   uses: EndBug/add-and-commit@v7
+    #   with:
+    #     cwd: base
+    #     message: 'update image version'
+    #     branch: main
+    #     GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
+    #     push: --force
+    #     default_author: user_info
         # git config user.name 'github-actions[bot]'
 
 
