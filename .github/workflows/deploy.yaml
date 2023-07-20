@@ -105,10 +105,9 @@ jobs:
         # git 
         
     - uses: stefanzweifel/git-auto-commit-action@v4
-      run: |
-        ls
       with:
         commit_message: Apply php-cs-fixer changes
+        sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
         push_options: --force
         repository: base/base
         commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
