@@ -110,7 +110,7 @@ jobs:
         pwd
         ls
 
-        cd base/base
+        cd base
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
     - name: Push helm changes
