@@ -102,6 +102,7 @@ jobs:
         repository: gitauwairimu/javamvn
         token: ${{ secrets.ACTIONS_RUNNER_TOKEN }}
         path: ./base
+        ref: refs/heads/main
         # git config --global init.defaultBranch main
 
     - name: Update chart.yaml
