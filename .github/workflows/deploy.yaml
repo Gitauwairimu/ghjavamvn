@@ -129,7 +129,7 @@ jobs:
         message: 'update image version'
         branch: main
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
-        tag_push: '--force'
+        push: --force
         default_author: github_actor
 
 
