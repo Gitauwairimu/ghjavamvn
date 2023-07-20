@@ -132,6 +132,7 @@ jobs:
         message: 'update app version'
         branch: main
         GITHUB_TOKEN: ${{secrets.ACTIONS_RUNNER_TOKEN}}
+        tag_push: '--force'
 
 
         # git push origin https://$GH_USER:$GH_TOKEN@github.com/$GH_USER/$REPO
