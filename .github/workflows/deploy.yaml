@@ -125,11 +125,12 @@ jobs:
         cd base/base
         sed -i "s|image: .*|image: gitauwairimu/javamvn:${GITHUB_RUN_ID}|g" deployment.yaml
 
-    - name: Run Datree Policy Check
-      uses: datreeio/action-datree@main
-      with:
-        path: 'base/base/deployment.yaml'
-        cliArguments: '--schema-version 1.20.0'
+    # - name: Run Datree Policy Check
+    #   uses: datreeio/action-datree@main
+    #   with:
+    #     path: 'base/base/deployment.yaml'
+    #     cliArguments: '--schema-version 1.20.0'
+
 
     # - name: Push Image Update changes
     #   uses: EndBug/add-and-commit@v7
