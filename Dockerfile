@@ -6,6 +6,9 @@ WORKDIR /app
 COPY target/my-app-1.0-SNAPSHOT.jar /app/my-app-1.0-SNAPSHOT.jar
 
 EXPOSE 8080
+
+RUN ls /app
+
 # set the startup command to execute the jar
 CMD ["java", "-jar", "/my-app-1.0-SNAPSHOT.jar"]
 
