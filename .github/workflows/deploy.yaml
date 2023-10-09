@@ -21,7 +21,7 @@ permissions:
 
 env:
   PROJECT_ID: ${{ secrets.GCE_PROJECT }}
-  GCE_INSTANCE: instance-name
+  GCE_INSTANCE: zuma
   GCE_INSTANCE_ZONE: us-east1-d
 
 jobs:
@@ -75,8 +75,10 @@ jobs:
 
     - name: Deploy on GCP
       run: |-
-          gcloud compute instances update-container "$GCE_INSTANCE" \
-            --zone "$GCE_INSTANCE_ZONE" \
-            --container-image "gitauwairimu/javamvn:${GITHUB_RUN_ID}"
+          gcloud compute instances create-with-container zuma --project=pork-merchant --zone=us-east1-d --machine-type=e2-small --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=sc-zuma@pork-merchant.iam.gserviceaccount.com --scopes=https://www.googleapis.com/auth/cloud-platform --tags=http-server --image=projects/cos-cloud/global/images/cos-105-17412-156-63 --boot-disk-size=10GB --boot-disk-type=pd-balanced --boot-disk-device-name=zuma --container-image=gitauwairimu/javamvn:\$\{GITHUB_RUN_ID\} --container-restart-policy=always --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud,container-vm=cos-105-17412-156-63
       # --container-image "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
+
+
+
+
 
