@@ -56,6 +56,11 @@ jobs:
       run: |
         docker push gitauwairimu/javamvn:${GITHUB_RUN_ID}
     
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
     # Setup gcloud CLI
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
