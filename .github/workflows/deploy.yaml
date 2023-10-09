@@ -57,10 +57,10 @@ jobs:
         docker push gitauwairimu/javamvn:${GITHUB_RUN_ID}
     
     # Setup gcloud CLI
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
       with:
-        version: >= 363.0.0
+        version: '>= 363.0.0'
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
