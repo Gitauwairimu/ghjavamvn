@@ -42,6 +42,12 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    
+    - name: Build with Maven
+      run: tree
+
+    - name: List Files
+      run: ls
 
     - name: Docker build
       run: |
@@ -84,3 +90,4 @@ jobs:
 
 
 
+# gcloud compute instances create-with-container zuma --project=pork-merchant --zone=us-east1-d --machine-type=e2-small --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=sc-zuma@pork-merchant.iam.gserviceaccount.com --scopes=https://www.googleapis.com/auth/cloud-platform --tags=http-server,https-server --image=projects/cos-cloud/global/images/cos-stable-109-17800-0-47 --boot-disk-size=10GB --boot-disk-type=pd-balanced --boot-disk-device-name=zuma --container-image=push\ gitauwairimu/javamvn:6456804406 --container-restart-policy=always --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud,container-vm=cos-stable-109-17800-0-47
